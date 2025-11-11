@@ -6,8 +6,8 @@ module.exports = {
 	siteMetadata: {
 		title: 'Manuel Caporaso',
 		description: 'Full Stack Developer portfolio.',
-		author: '@MarcusStewart',
-		siteUrl: 'https://www.marcusstewart.me',
+		author: '@ManuCaporaso',
+		siteUrl: 'https://manuelcaporaso.online',
 	},
 	plugins: ['gatsby-plugin-postcss', `gatsby-plugin-react-helmet`, `react-helmet`],
 };
