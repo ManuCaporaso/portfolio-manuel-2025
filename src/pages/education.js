@@ -42,11 +42,15 @@ const education = [
     certificates: [
       {
         title: "Certificado · Programación Backend (ITS)",
-        image: "/images/certificates/its-backend-2024.jpg",
+        image: "/images/certificados/backend.jpeg",
       },
       {
         title: "Certificado · Integración de Aplicaciones (ITS)",
-        image: "/images/certificates/its-integracion-2024.jpg",
+        image: "/images/certificados/aplicaciones.jpeg",
+      },
+      {
+        title: "Certificado · Programación Frontend (ITS)",
+        image: "/images/certificados/frontend.jpeg",
       },
     ],
   },
@@ -140,9 +144,6 @@ const courses = [
   },
 ];
 
-/* =====================
-   PAGE COMPONENT
-   ===================== */
 export default function EducationPage() {
   const [lightbox, setLightbox] = React.useState({ open: false, src: "", alt: "" });
   const dialogRef = React.useRef(null);
@@ -169,10 +170,51 @@ export default function EducationPage() {
           </p>
         </div>
 
-        {/* Timeline Educación */}
+        {/* Educación */}
         <div className="w-full">
-          <h2 className="text-2xl font-bold mb-4">Educación</h2>
-          <ul className="timeline timeline-vertical">
+          <h2 className="text-2xl font-bold mb-6 text-center sm:text-left">Educación</h2>
+
+          {/* MOBILE: tarjetas */}
+          <div className="flex flex-col gap-6 md:hidden">
+            {education.map((e, i) => (
+              <div key={i} className="bg-base-100 border border-base-300 rounded-lg p-4 text-left shadow-sm">
+                <h3 className="font-semibold text-lg">{e.school}</h3>
+                <p className="text-sm opacity-80">{e.program}</p>
+                <p className="text-xs mt-1">{e.period}</p>
+
+                {e.details && <p className="mt-2 text-sm">{e.details}</p>}
+
+                {e.badges?.length > 0 && (
+                  <div className="mt-2 flex flex-wrap gap-2 text-xs">
+                    {e.badges.map((b, bi) => (
+                      <span key={bi} className="badge badge-outline">{b}</span>
+                    ))}
+                  </div>
+                )}
+
+                {/* CERTIFICADOS EN MOBILE */}
+                {e.certificates?.length > 0 && (
+                  <div className="mt-4">
+                    <h4 className="text-sm font-semibold mb-2">Certificados</h4>
+                    <div className="flex flex-wrap gap-3">
+                      {e.certificates.map((c, ci) => (
+                        <button
+                          key={ci}
+                          onClick={() => openLightbox(c.image, c.title)}
+                          className="rounded-lg overflow-hidden border border-base-300 hover:shadow-md transition"
+                        >
+                          <img src={c.image} alt={c.title} className="w-32 h-20 object-cover" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* DESKTOP: timeline */}
+          <ul className="hidden md:timeline md:timeline-vertical md:block">
             {education.map((e, i) => (
               <li key={i}>
                 <div className="timeline-start timeline-box bg-base-100 border border-base-300">
@@ -198,13 +240,9 @@ export default function EducationPage() {
                           <button
                             key={ci}
                             onClick={() => openLightbox(c.image, c.title)}
-                            className="group rounded-lg overflow-hidden border border-base-300 hover:shadow-md transition"
+                            className="rounded-lg overflow-hidden border border-base-300 hover:shadow-md transition"
                           >
-                            <img
-                              src={c.image}
-                              alt={c.title}
-                              className="w-32 h-20 object-cover"
-                            />
+                            <img src={c.image} alt={c.title} className="w-32 h-20 object-cover" />
                           </button>
                         ))}
                       </div>
@@ -216,14 +254,21 @@ export default function EducationPage() {
                   <Icon icon="mdi:school-outline" width="22" height="22" />
                 </div>
 
-                <hr className="bg-base-300" />
+                {i < education.length - 1 && <hr className="bg-base-300" />}
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Cursos (miniaturas) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-full">
+        {/* Cursos Realizados */}
+        <div className="w-full mt-12">
+          <h2 className="text-2xl font-bold mb-6 text-center sm:text-left">
+            Cursos Realizados
+          </h2>
+        </div>
+
+        {/* Cursos */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 w-full">
           {courses.map((c, i) => (
             <article
               key={i}
@@ -241,9 +286,7 @@ export default function EducationPage() {
               </figure>
 
               <div className="card-body gap-2 text-left">
-                <h3 className="card-title text-sm sm:text-base">
-                  {c.title}
-                </h3>
+                <h3 className="card-title text-sm sm:text-base">{c.title}</h3>
                 <p className="text-xs opacity-70">{c.provider} • {c.year}</p>
                 <p className="text-sm opacity-80">{c.description}</p>
 
@@ -255,11 +298,6 @@ export default function EducationPage() {
               </div>
             </article>
           ))}
-        </div>
-
-        {/* CV */}
-        <div className="mt-10">
-          <a href="/resume.pdf" className="btn btn-primary">Ver CV</a>
         </div>
 
       </section>
