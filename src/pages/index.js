@@ -22,10 +22,20 @@ const IndexPage = () => {
 
       <section
         className="
-          flex flex-col items-center text-center
+          flex flex-col items-center text-center gap-3
           animate-[fadeInUp_0.8s_ease-out]
         "
       >
+        {/* Título superior */}
+        <h2
+          className="
+            text-lg sm:text-xl font-semibold uppercase tracking-widest
+            text-primary dark:text-sky-400
+          "
+        >
+          Portfolio
+        </h2>
+
         {/* Foto */}
         <div
           className="
@@ -35,7 +45,6 @@ const IndexPage = () => {
             hover:shadow-xl hover:shadow-primary/25 dark:hover:shadow-indigo-400/25
           "
         >
-          {/* Si tu imagen está en /static/images/manu1.jpg, el src correcto es /images/manu1.jpg */}
           <img
             src="/images/manu1.jpg"
             alt="Manuel Caporaso"

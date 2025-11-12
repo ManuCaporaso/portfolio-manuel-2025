@@ -4,16 +4,16 @@ import Layout from "../components/layout";
 
 const cards = [
   {
-    title: "Rick and Morty API Explorer",
-    alt: "Rick and Morty API Explorer Image",
-    src: "/images/proyectos/rick&morty.png",
+    title: "Info-Tracker -Capturadora de novedades full-stack",
+    alt: "Info-Tracker aplicación de escritorio",
+    src: "/images/proyectos/info-tracker.png",
     description:
-      "Aplicación móvil en React Native con Expo para explorar personajes, episodios y ubicaciones desde la API de Rick and Morty.",
-    badges: ["React Native", "Expo", "REST API"],
+      "Aplicacion de escritorio y movil para capturar novedades de clientes, con reconocimiento de imagenes para diferentes areas.",
+    badges: ["React",  "Nestjs", , "mariadb", "REST API", "python", "tesseract OCR", "OpenCV"],
     buttons: [
       {
-        label: "Repo",
-        href: "https://github.com/ManuCaporaso/ITS-Rick-Morty-API-React-Native",
+        label: "Solicitar acceso al Repo",
+        href: "https://github.com/orgs/NovAR-Development-Group/repositories",
         className: "btn btn-sm btn-outline btn-primary",
       },
     ],
@@ -54,11 +54,11 @@ const cards = [
     ],
   },
   {
-    title: "Sistema de turnero con WebSockets",
+    title: "Sistema de turnos con WebSockets",
     alt: "Sistema de turnos para comercio",
     src: "/images/proyectos/socket.png",
     description:
-      "Aplicación web para gestión de turnos en comercios, con notificaciones en tiempo real usando WebSockets.",
+      "Aplicación web para gestión de turnos , con notificaciones en tiempo real usando WebSockets.",
     badges: ["Node.js", "Express", "Socket.io", "HTML", "CSS", "JavaScript"],
     buttons: [
       {

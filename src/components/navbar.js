@@ -19,7 +19,7 @@ export default function Navbar() {
         {/* Logo / Nombre */}
         <div className="flex items-center gap-2">
           <Link to="/" className="text-lg font-semibold tracking-tight hover:opacity-80 transition-opacity">
-            Manuel Caporaso
+            Portfolio de Manuel Caporaso
           </Link>
         </div>
 
@@ -45,7 +45,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="hidden sm:inline-flex text-sm hover:text-primary transition-colors"
           >
-            Resume
+            Resume CV
           </a>
 
           <ThemeToggle className="scale-95" />
