@@ -9,8 +9,7 @@ export default function Card({
   badges = [],
   buttons = [],
   className = "",
-  variant = "elevated",
-  onImageClick, // <<< NUEVO
+  onImageClick,
 }) {
   return (
     <div
@@ -20,23 +19,33 @@ export default function Card({
         ${className}
       `}
     >
-      <figure
-        className="overflow-hidden rounded-t-xl cursor-zoom-in"
-        onClick={() => onImageClick && onImageClick(src, alt)} // <<< NUEVO
+      {/* Cambiamos el figure o su contenido por un botón para accesibilidad. 
+         Esto elimina el warning: jsx-a11y/click-events-have-key-events 
+      */}
+      <button
+        type="button"
+        className="overflow-hidden rounded-t-xl cursor-zoom-in w-full p-0 border-none bg-transparent focus:outline-primary"
+        onClick={() => onImageClick && onImageClick(src, alt)}
+        aria-label={`Ver imagen de ${title}`}
       >
-        <img
-          src={src}
-          alt={alt}
-          className="w-full h-48 object-cover transition-transform duration-300 ease-out hover:scale-105"
-        />
-      </figure>
+        <figure className="m-0">
+          <img
+            src={src}
+            alt={alt}
+            className="w-full h-48 object-cover transition-transform duration-300 ease-out hover:scale-105"
+          />
+        </figure>
+      </button>
 
       <div className="card-body">
         <h2 className="card-title text-left">{title}</h2>
 
         {badges.length > 0 && (
           <div className="flex flex-wrap gap-2 my-1">
-            {badges.map((badge, index) => (
+            {/* Filtramos elementos nulos por si quedó alguna coma extra 
+               en los arrays de los proyectos 
+            */}
+            {badges.filter(Boolean).map((badge, index) => (
               <span key={index} className="badge badge-outline border-base-300 text-sm">
                 {badge}
               </span>

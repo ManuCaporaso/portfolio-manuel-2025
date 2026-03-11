@@ -40,8 +40,10 @@ export default function Navbar() {
 
         {/* Right side items */}
         <div className="flex items-center gap-3">
+          {/* CV DESKTOP: Ahora se abre en ventana aparte */}
           <a
             href="/resume.pdf"
+            target="_blank" 
             rel="noopener noreferrer"
             className="hidden sm:inline-flex text-sm hover:text-primary transition-colors"
           >
@@ -51,15 +53,16 @@ export default function Navbar() {
           <ThemeToggle className="scale-95" />
 
           {/* Mobile Menu */}
-          <div className="dropdown lg:hidden">
-            <button tabIndex={0} className="btn btn-ghost btn-sm px-2" aria-label="Open menu">
+          <div className="dropdown dropdown-end lg:hidden">
+            <button 
+              type="button"
+              className="btn btn-ghost btn-sm px-2" 
+              aria-label="Open menu"
+            >
               <Icon icon="material-symbols:menu-rounded" width="22" height="22" />
             </button>
 
-            <ul
-              tabIndex={0}
-              className="menu dropdown-content right-0 mt-3 w-48 p-3 bg-base-100 border border-base-300 rounded-lg shadow-md"
-            >
+            <ul className="menu menu-sm dropdown-content mt-3 z-[1] w-48 p-3 bg-base-100 border border-base-300 rounded-lg shadow-md">
               {links.map((item, i) => (
                 <li key={i}>
                   <Link to={item.url} activeClassName="text-primary font-semibold">
@@ -67,9 +70,11 @@ export default function Navbar() {
                   </Link>
                 </li>
               ))}
-              <li className="mt-1">
+              <li className="mt-1 border-t border-base-300 pt-1">
+                {/* CV MOBILE: Ahora se abre en ventana aparte */}
                 <a
                   href="/resume.pdf"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm hover:text-primary transition-colors"
                 >

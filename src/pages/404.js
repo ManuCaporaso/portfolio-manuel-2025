@@ -2,9 +2,13 @@ import * as React from "react";
 import { Link } from "gatsby";
 import Layout from "../components/layout";
 
-const NotFoundPage = () => {
+// 1. Recibimos 'location' como prop
+const NotFoundPage = ({ location }) => {
   return (
-    <Layout title="Not Found">
+    <Layout 
+      location={location} // 2. Se la pasamos al Layout
+      title="Not Found"
+    >
       <section className="flex flex-col items-center justify-center text-center min-h-[70vh] gap-6 px-6">
 
         {/* Status Code */}
@@ -20,13 +24,13 @@ const NotFoundPage = () => {
             text-base-content
           "
         >
-          Page not found
+          Página no encontrada
         </h1>
 
         {/* Message */}
         <p className="text-base sm:text-xl text-base-content/70 max-w-[550px]">
-          Sorry, we couldn’t find the page you were looking for.  
-          It may have moved — or never existed.
+          Lo sentimos, no pudimos encontrar la página que estás buscando.  
+          Puede que se haya movido o que nunca haya existido.
         </p>
 
         {/* CTA Button */}
@@ -37,7 +41,7 @@ const NotFoundPage = () => {
             transition-transform duration-300 hover:-translate-y-0.5
           "
         >
-          Take me home
+          Volver al inicio
         </Link>
 
       </section>
@@ -47,4 +51,5 @@ const NotFoundPage = () => {
 
 export default NotFoundPage;
 
-export const Head = () => <title>Not Found</title>;
+// Gatsby 5 recomienda usar el componente Head para el SEO
+export const Head = () => <title>404: Not Found | Manuel Caporaso</title>;

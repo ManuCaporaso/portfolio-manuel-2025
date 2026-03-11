@@ -18,6 +18,7 @@ export default function Footer() {
             <a
               key={index}
               href={url}
+              target="_blank" // Ajuste: Abre en pestaña nueva
               rel="noopener noreferrer"
               className="transition-colors hover:text-primary"
               aria-label={label}

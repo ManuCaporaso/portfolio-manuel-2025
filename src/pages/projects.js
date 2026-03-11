@@ -9,7 +9,8 @@ const cards = [
     src: "/images/proyectos/info-tracker.png",
     description:
       "Aplicacion de escritorio y movil para capturar novedades de clientes, con reconocimiento de imagenes para diferentes areas.",
-    badges: ["React",  "Nestjs", , "mariadb", "REST API", "python", "tesseract OCR", "OpenCV"],
+    // CORRECCIÓN: Se eliminó la coma extra después de "Nestjs"
+    badges: ["React", "Nestjs", "mariadb", "REST API", "python", "tesseract OCR", "OpenCV"],
     buttons: [
       {
         label: "Solicitar acceso al Repo",
@@ -38,7 +39,7 @@ const cards = [
       },
     ],
   },
-    {
+  {
     title: "Tienda online de Ropa Full-Stack",
     alt: "Tienda de ropa online",
     src: "/images/proyectos/tienda.png",
@@ -70,7 +71,8 @@ const cards = [
   },
 ];
 
-export default function ProjectsPage() {
+// Recibimos 'location' para las transiciones
+export default function ProjectsPage({ location }) {
   const [lightbox, setLightbox] = React.useState({ open: false, src: "", alt: "" });
   const dialogRef = React.useRef(null);
 
@@ -81,7 +83,11 @@ export default function ProjectsPage() {
   }, [lightbox.open]);
 
   return (
-    <Layout title="Proyectos" description="Proyectos desarrollados por Manuel Caporaso.">
+    <Layout 
+      location={location} // <--- Fundamental para Framer Motion
+      title="Proyectos" 
+      description="Proyectos desarrollados por Manuel Caporaso."
+    >
       <section className="flex flex-col items-center text-center w-full max-w-7xl mx-auto px-4 pt-4 pb-16 gap-10">
 
         <header>
@@ -106,9 +112,17 @@ export default function ProjectsPage() {
         </ul>
       </section>
 
-      {/* Lightbox */}
-      <dialog ref={dialogRef} className="modal" onClick={() => setLightbox({ open: false })}>
-        <div className="modal-box max-w-5xl p-2 sm:p-4 bg-base-100">
+      {/* Lightbox - Accesibilidad mejorada con un botón de cierre */}
+      <dialog 
+        ref={dialogRef} 
+        className="modal" 
+        onClick={() => setLightbox({ open: false })}
+        onKeyDown={(e) => e.key === 'Escape' && setLightbox({ open: false })}
+      >
+        <div className="modal-box max-w-5xl p-2 sm:p-4 bg-base-100 relative">
+          <form method="dialog">
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+          </form>
           <img src={lightbox.src} alt={lightbox.alt} className="w-full h-auto object-contain rounded-lg" />
         </div>
       </dialog>

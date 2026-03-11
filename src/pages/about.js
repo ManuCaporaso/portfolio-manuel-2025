@@ -51,7 +51,7 @@ const softSkills = [
   { icon: "mdi:calendar-check-outline", name: "Gestión del tiempo" },
 ];
 
-const AboutPage = () => {
+const AboutPage = ({ location }) => { // 1. Recibir location
   const sortedSkills = React.useMemo(
     () =>
       [...skills].sort((a, b) =>
@@ -62,6 +62,7 @@ const AboutPage = () => {
 
   return (
     <Layout
+      location={location} // 2. Pasar location al Layout
       title="Sobre mí"
       description="Portfolio de Manuel Caporaso — Full Stack Developer y técnico en mantenimiento informático."
     >
@@ -77,7 +78,6 @@ const AboutPage = () => {
           Sobre mí
         </h1>
 
-        {/* GRID PRINCIPAL */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 text-left">
           {/* Perfil */}
           <article className="card bg-base-100 border border-base-300 shadow-sm">
@@ -115,9 +115,9 @@ const AboutPage = () => {
           </article>
         </div>
 
-        {/* NUEVA SECCIÓN: HARDWARE */}
+        {/* HARDWARE */}
         <article className="card bg-base-100 border border-base-300 shadow-sm w-full">
-          <div className="card-body gap-4">
+          <div className="card-body gap-4 text-left">
             <h2 className="card-title">Habilidades en hardware y soporte técnico</h2>
             <p className="text-base text-base-content/70">
               Conocimientos prácticos en reparación, diagnóstico y mantenimiento de equipos informáticos.
@@ -137,7 +137,7 @@ const AboutPage = () => {
         </article>
 
         {/* Habilidades Blandas */}
-        <article className="card bg-base-100 border border-base-300 shadow-sm w-full">
+        <article className="card bg-base-100 border border-base-300 shadow-sm w-full text-left">
           <div className="card-body gap-4">
             <h2 className="card-title">Habilidades blandas</h2>
             <p className="text-base text-base-content/70">

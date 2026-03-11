@@ -144,7 +144,7 @@ const courses = [
   },
 ];
 
-export default function EducationPage() {
+export default function EducationPage({ location }) { // AJUSTE 1: Recibimos location
   const [lightbox, setLightbox] = React.useState({ open: false, src: "", alt: "" });
   const dialogRef = React.useRef(null);
 
@@ -157,7 +157,11 @@ export default function EducationPage() {
   const closeLightbox = () => setLightbox({ open: false, src: "", alt: "" });
 
   return (
-    <Layout title="Estudios & Cursos" description="Formación académica y cursos de Manuel Caporaso.">
+    <Layout 
+        location={location} // AJUSTE 2: Pasamos location al Layout
+        title="Estudios & Cursos" 
+        description="Formación académica y cursos de Manuel Caporaso."
+    >
       <section className="flex flex-col items-center text-center w-full max-w-6xl mx-auto px-4 pt-4 pb-16 gap-10">
 
         {/* Header */}
@@ -200,6 +204,7 @@ export default function EducationPage() {
                       {e.certificates.map((c, ci) => (
                         <button
                           key={ci}
+                          type="button" // Cambiado a button para accesibilidad
                           onClick={() => openLightbox(c.image, c.title)}
                           className="rounded-lg overflow-hidden border border-base-300 hover:shadow-md transition"
                         >
@@ -239,6 +244,7 @@ export default function EducationPage() {
                         {e.certificates.map((c, ci) => (
                           <button
                             key={ci}
+                            type="button" // Cambiado a button para eliminar warnings
                             onClick={() => openLightbox(c.image, c.title)}
                             className="rounded-lg overflow-hidden border border-base-300 hover:shadow-md transition"
                           >
@@ -272,10 +278,11 @@ export default function EducationPage() {
           {courses.map((c, i) => (
             <article
               key={i}
-              className="card bg-base-100 border border-base-300 hover:shadow-lg transition-shadow"
+              className="card bg-base-100 border border-base-300 hover:shadow-lg transition-shadow text-left"
             >
-              <figure
-                className="cursor-pointer flex items-center justify-center p-3"
+              <button
+                type="button" // Cambiado figure por button para que sea interactivo correctamente
+                className="cursor-pointer flex items-center justify-center p-3 w-full"
                 onClick={() => openLightbox(c.image, c.title)}
               >
                 <img
@@ -283,9 +290,9 @@ export default function EducationPage() {
                   alt={c.title}
                   className="w-40 h-24 sm:w-48 sm:h-28 object-contain"
                 />
-              </figure>
+              </button>
 
-              <div className="card-body gap-2 text-left">
+              <div className="card-body gap-2">
                 <h3 className="card-title text-sm sm:text-base">{c.title}</h3>
                 <p className="text-xs opacity-70">{c.provider} • {c.year}</p>
                 <p className="text-sm opacity-80">{c.description}</p>
@@ -307,7 +314,7 @@ export default function EducationPage() {
         <div className="modal-box max-w-5xl p-4" onClick={(e) => e.stopPropagation()}>
           <img src={lightbox.src} alt={lightbox.alt} className="w-full h-auto object-contain rounded-lg" />
           <div className="modal-action">
-            <button className="btn btn-ghost" onClick={closeLightbox}>Cerrar</button>
+            <button type="button" className="btn btn-ghost" onClick={closeLightbox}>Cerrar</button>
           </div>
         </div>
       </dialog>
