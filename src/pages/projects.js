@@ -3,13 +3,12 @@ import Card from "../components/card";
 import Layout from "../components/layout";
 
 const cards = [
+  // ... (tus datos se mantienen igual)
   {
-    title: "Info-Tracker -Capturadora de novedades full-stack",
+    title: "Info-Tracker - Capturadora de novedades full-stack",
     alt: "Info-Tracker aplicación de escritorio",
     src: "/images/proyectos/info-tracker.png",
-    description:
-      "Aplicacion de escritorio y movil para capturar novedades de clientes, con reconocimiento de imagenes para diferentes areas.",
-    // CORRECCIÓN: Se eliminó la coma extra después de "Nestjs"
+    description: "Aplicación de escritorio y móvil para capturar novedades de clientes, con reconocimiento de imágenes para diferentes áreas.",
     badges: ["React", "Nestjs", "mariadb", "REST API", "python", "tesseract OCR", "OpenCV"],
     buttons: [
       {
@@ -23,8 +22,7 @@ const cards = [
     title: "Administración para Sindicato",
     alt: "Carga de datos sindicato",
     src: "/images/proyectos/sindicato.png",
-    description:
-      "Sistema web full-stack para gestión de afiliados, reportes y administración interna.",
+    description: "Sistema web full-stack para gestión de afiliados, reportes y administración interna.",
     badges: ["Node.js", "React.js", "Express", "PostgreSQL", "JWT", "REST API"],
     buttons: [
       {
@@ -43,8 +41,7 @@ const cards = [
     title: "Tienda online de Ropa Full-Stack",
     alt: "Tienda de ropa online",
     src: "/images/proyectos/tienda.png",
-    description:
-      "Tienda online de ropa desarrollada con arquitectura full-stack, permitiendo a los usuarios navegar productos, agregar al carrito y realizar compras seguras.",
+    description: "Tienda online de ropa desarrollada con arquitectura full-stack, permitiendo a los usuarios navegar productos y realizar compras seguras.",
     badges: ["Node.js", "React.js", "Express", "MySQL", "JWT", "REST API"],
     buttons: [
       {
@@ -58,8 +55,7 @@ const cards = [
     title: "Sistema de turnos con WebSockets",
     alt: "Sistema de turnos para comercio",
     src: "/images/proyectos/socket.png",
-    description:
-      "Aplicación web para gestión de turnos , con notificaciones en tiempo real usando WebSockets.",
+    description: "Aplicación web para gestión de turnos, con notificaciones en tiempo real usando WebSockets.",
     badges: ["Node.js", "Express", "Socket.io", "HTML", "CSS", "JavaScript"],
     buttons: [
       {
@@ -71,7 +67,6 @@ const cards = [
   },
 ];
 
-// Recibimos 'location' para las transiciones
 export default function ProjectsPage({ location }) {
   const [lightbox, setLightbox] = React.useState({ open: false, src: "", alt: "" });
   const dialogRef = React.useRef(null);
@@ -84,12 +79,11 @@ export default function ProjectsPage({ location }) {
 
   return (
     <Layout 
-      location={location} // <--- Fundamental para Framer Motion
+      location={location} 
       title="Proyectos" 
       description="Proyectos desarrollados por Manuel Caporaso."
     >
       <section className="flex flex-col items-center text-center w-full max-w-7xl mx-auto px-4 pt-4 pb-16 gap-10">
-
         <header>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-primary to-secondary dark:from-indigo-300 dark:to-sky-400 bg-clip-text text-transparent">
             Proyectos
@@ -112,20 +106,34 @@ export default function ProjectsPage({ location }) {
         </ul>
       </section>
 
-      {/* Lightbox - Accesibilidad mejorada con un botón de cierre */}
-      <dialog 
-        ref={dialogRef} 
-        className="modal" 
-        onClick={() => setLightbox({ open: false })}
-        onKeyDown={(e) => e.key === 'Escape' && setLightbox({ open: false })}
-      >
-        <div className="modal-box max-w-5xl p-2 sm:p-4 bg-base-100 relative">
-          <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-          </form>
-          <img src={lightbox.src} alt={lightbox.alt} className="w-full h-auto object-contain rounded-lg" />
-        </div>
-      </dialog>
+      {/* Lightbox con Accesibilidad Silenciosa */}
+<dialog 
+  ref={dialogRef} 
+  className="modal" 
+  onKeyDown={(e) => e.key === 'Escape' && setLightbox({ open: false })}
+>
+  <div className="modal-box max-w-5xl p-2 sm:p-4 bg-base-100 relative">
+    <button 
+      type="button"
+      className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 z-10"
+      onClick={() => setLightbox({ open: false })}
+    >✕</button>
+    <img 
+      src={lightbox.src} 
+      alt={lightbox.alt} 
+      className="w-full h-auto object-contain rounded-lg shadow-xl" 
+    />
+  </div>
+
+  {/* Este es el truco: Un botón invisible que ocupa todo el fondo */}
+  <form method="dialog" className="modal-backdrop">
+    <button 
+      type="button" 
+      className="cursor-default outline-none" 
+      onClick={() => setLightbox({ open: false })}
+    >close</button>
+  </form>
+</dialog>
     </Layout>
   );
 }
