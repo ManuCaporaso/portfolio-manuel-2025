@@ -18,7 +18,7 @@ export default function Navbar() {
 
         {/* Logo / Nombre */}
         <div className="flex items-center gap-2">
-          <Link to="/" className="text-lg font-semibold tracking-tight hover:opacity-80 transition-opacity">
+          <Link to="/" className="text-xs font-semibold tracking-tight hover:opacity-80 transition-opacity">
             Portfolio de Manuel Caporaso
           </Link>
         </div>

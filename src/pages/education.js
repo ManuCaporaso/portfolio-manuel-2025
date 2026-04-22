@@ -12,6 +12,10 @@ const education = [
     period: "2025",
     details: "3er año de formación orientado a desarrollo web/móvil, prácticas profesionales y proyectos integradores.",
     badges: ["Inglés técnico III", "Ética y Responsabilidad Social", "Desarrollo Móvil", "Innovación y Desarrollo Emprendedor", "Desarrollo Web", "Gestión de Proyectos de Software", "Programación Backend", "Desarrollo de Software", "Prácticas Profesionales III"],
+    certificates: [
+      { title: "Certificado · Programación Web (ITS)", image: "/images/certificados/web.jpeg" },
+      { title: "Certificado · Programación Móvil (ITS)", image: "/images/certificados/movil.jpeg" },
+    ],
   },
   {
     school: "Instituto Técnico Superior de Cipolletti (ITS)",
