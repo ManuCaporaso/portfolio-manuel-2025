@@ -96,7 +96,7 @@ const PresupuestosPage = ({ location }) => {
                   </div>
                   
                   <a 
-                    href={`https://wa.me/549299XXXXXXX?text=Hola Manuel, me interesa la solución: ${item.title}`}
+                    href={`https://wa.me/5492994647009?text=Hola Manuel, me interesa la solución: ${item.title}`}
                     className="btn btn-primary btn-block text-lg shadow-md"
                   >
                     Consultar por este plan

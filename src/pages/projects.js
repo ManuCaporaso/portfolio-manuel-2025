@@ -25,8 +25,8 @@ const cards = [
     badges: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Formspree"],
     buttons: [
       {
-        label: "Live Demo",
-        href: "https://le-render-page.netlify.app/", 
+        label: "Pagina Web",
+        href: "https://le-render.com/", 
         className: "btn btn-sm btn-primary",
       },
     ],
