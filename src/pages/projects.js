@@ -3,13 +3,40 @@ import Card from "../components/card";
 import Layout from "../components/layout";
 
 const cards = [
-  // ... (tus datos se mantienen igual)
   {
-    title: "Info-Tracker - Capturadora de novedades full-stack",
-    alt: "Info-Tracker aplicación de escritorio",
+    title: "STP - Sindicato de Trabajadores de la Prevención",
+    alt: "Sitio web oficial del sindicato STP",
+    src: "/images/proyectos/stp-sindicato.png",
+    description: "Sitio web institucional para el Sindicato de Trabajadores de la Prevención de Riesgos Laborales, Salud Ocupacional y Protección Ambiental de Neuquén y Río Negro. Enfoque en accesibilidad y comunicación gremial.",
+    badges: ["React", "Vite", "Tailwind CSS", "Formspree", "SEO"],
+    buttons: [
+      {
+        label: "Live Demo",
+        href: "https://stp-sindicato.netlify.app/", 
+        className: "btn btn-sm btn-primary",
+      },
+    ],
+  },
+  {
+    title: "Le Render - Arquitectura & Visualización",
+    alt: "Portfolio profesional de arquitectura Le Render",
+    src: "/images/proyectos/le-render.png",
+    description: "Portfolio digital para estudio de arquitectura especializado en renders 3D. Optimización avanzada de carga de imágenes (WebP) y diseño responsivo de alta gama.",
+    badges: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Formspree"],
+    buttons: [
+      {
+        label: "Live Demo",
+        href: "https://le-render-page.netlify.app/", 
+        className: "btn btn-sm btn-primary",
+      },
+    ],
+  },
+  {
+    title: "Info-Tracker - Capturadora Full-Stack",
+    alt: "Info-Tracker aplicación de gestión de novedades",
     src: "/images/proyectos/info-tracker.png",
-    description: "Aplicación de escritorio y móvil para capturar novedades de clientes, con reconocimiento de imágenes para diferentes áreas.",
-    badges: ["React", "Nestjs", "mariadb", "REST API", "python", "tesseract OCR", "OpenCV"],
+    description: "Aplicación multiplataforma para capturar novedades de clientes en tiempo real. Incluye reconocimiento de imágenes para automatización de datos.",
+    badges: ["React", "NodeJs", "Express", "MongoDB", "JWT", "Python", "Tesseract OCR"],
     buttons: [
       {
         label: "Solicitar acceso al Repo",
@@ -19,30 +46,25 @@ const cards = [
     ],
   },
   {
-    title: "Administración para Sindicato",
-    alt: "Carga de datos sindicato",
+    title: "Gestión Interna SITRAMUCI",
+    alt: "Sistema de administración sindical interno",
     src: "/images/proyectos/sindicato.png",
-    description: "Sistema web full-stack para gestión de afiliados, reportes y administración interna.",
-    badges: ["Node.js", "React.js", "Express", "PostgreSQL", "JWT", "REST API"],
+    description: "Sistema de gestión administrativa para el sindicato municipal: manejo de afiliados, reportes de cuotas y paneles internos de control.",
+    badges: ["Node.js", "Express", "PostgreSQL", "JWT", "REST API"],
     buttons: [
       {
         label: "Repo",
         href: "https://github.com/ManuCaporaso/sitramuci-sindicato",
         className: "btn btn-sm btn-outline btn-primary",
       },
-      {
-        label: "Live Demo",
-        href: "https://sitramuci-sindicato.netlify.app/",
-        className: "btn btn-sm btn-primary",
-      },
     ],
   },
   {
-    title: "Tienda online de Ropa Full-Stack",
-    alt: "Tienda de ropa online",
+    title: "Ecommerce de Indumentaria",
+    alt: "Tienda online de ropa full-stack",
     src: "/images/proyectos/tienda.png",
-    description: "Tienda online de ropa desarrollada con arquitectura full-stack, permitiendo a los usuarios navegar productos y realizar compras seguras.",
-    badges: ["Node.js", "React.js", "Express", "MySQL", "JWT", "REST API"],
+    description: "Tienda online con flujo completo de compra: navegación por categorías, carrito de compras persistente y panel de administración.",
+    badges: ["Node.js", "Express", "MySQL", "React", "JWT"],
     buttons: [
       {
         label: "Repo",
@@ -52,11 +74,11 @@ const cards = [
     ],
   },
   {
-    title: "Sistema de turnos con WebSockets",
-    alt: "Sistema de turnos para comercio",
+    title: "Gestión de Turnos en Tiempo Real",
+    alt: "Aplicación de ticketera con WebSockets",
     src: "/images/proyectos/socket.png",
-    description: "Aplicación web para gestión de turnos, con notificaciones en tiempo real usando WebSockets.",
-    badges: ["Node.js", "Express", "Socket.io", "HTML", "CSS", "JavaScript"],
+    description: "Sistema dinámico de turnos para comercios, utilizando comunicación bidireccional para actualizaciones instantáneas en pantalla.",
+    badges: ["Node.js", "Socket.io", "Express", "JavaScript"],
     buttons: [
       {
         label: "Repo",
@@ -89,7 +111,7 @@ export default function ProjectsPage({ location }) {
             Proyectos
           </h1>
           <p className="mt-2 text-base sm:text-lg text-base-content/70">
-            Selección de trabajos personales y académicos.
+            Soluciones digitales a medida para organizaciones y estudios profesionales.
           </p>
         </header>
 
@@ -106,32 +128,31 @@ export default function ProjectsPage({ location }) {
         </ul>
       </section>
 
-      {/* Lightbox con Accesibilidad Silenciosa */}
+      {/* Lightbox - DaisyUI Accessiblity Pattern */}
 <dialog 
   ref={dialogRef} 
-  className="modal" 
-  onKeyDown={(e) => e.key === 'Escape' && setLightbox({ open: false })}
+  className="modal"
 >
   <div className="modal-box max-w-5xl p-2 sm:p-4 bg-base-100 relative">
     <button 
       type="button"
       className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 z-10"
-      onClick={() => setLightbox({ open: false })}
+      onClick={() => setLightbox({ open: false, src: "", alt: "" })}
     >✕</button>
-    <img 
-      src={lightbox.src} 
-      alt={lightbox.alt} 
-      className="w-full h-auto object-contain rounded-lg shadow-xl" 
-    />
+    <img src={lightbox.src} alt={lightbox.alt} className="w-full h-auto object-contain rounded-lg" />
   </div>
 
-  {/* Este es el truco: Un botón invisible que ocupa todo el fondo */}
   <form method="dialog" className="modal-backdrop">
     <button 
-      type="button" 
-      className="cursor-default outline-none" 
-      onClick={() => setLightbox({ open: false })}
-    >close</button>
+      type="submit" 
+      className="cursor-default outline-none"
+      onClick={(e) => {
+        e.preventDefault();
+        setLightbox({ open: false, src: "", alt: "" });
+      }}
+    >
+      close
+    </button>
   </form>
 </dialog>
     </Layout>

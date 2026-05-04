@@ -27,7 +27,7 @@ export default function Footer() {
   const isDark = darkThemes.includes(theme);
 
   const logoLight = "/images/logo-dev.png";
-  const logoDark = "/images/logo-dev2.png";
+  const logoDark = "/images/logo-dev.png";
 
   const logoSrc = isDark ? logoLight : logoDark;
 

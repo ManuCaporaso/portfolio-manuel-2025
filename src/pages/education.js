@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import { Icon } from "@iconify/react";
 
 /* =====================
-   DATOS DE EDUCACIÓN
+    DATOS DE EDUCACIÓN
    ===================== */
 const education = [
   {
@@ -39,7 +39,7 @@ const education = [
 ];
 
 /* =====================
-   DATOS DE CURSOS
+    DATOS DE CURSOS
    ===================== */
 const courses = [
   {
@@ -115,11 +115,14 @@ export default function EducationPage({ location }) {
   React.useEffect(() => {
     const dlg = dialogRef.current;
     if (!dlg) return;
-    lightbox.open ? dlg.showModal() : dlg.close();
+    if (lightbox.open) {
+      dlg.showModal();
+    } else {
+      dlg.close();
+    }
   }, [lightbox.open]);
 
-  const openLightbox = (src, alt) => setLightbox({ open: true, src, alt });
-  const closeLightbox = () => setLightbox({ open: false, src: "", alt: "" });
+  // FIX: Eliminamos las funciones declaradas que no se usaban para limpiar el warning 'no-unused-vars'
 
   return (
     <Layout 
@@ -155,7 +158,7 @@ export default function EducationPage({ location }) {
                           key={ci}
                           type="button"
                           className="rounded-lg overflow-hidden border border-base-300 hover:scale-105 transition-transform focus:ring-2 focus:ring-primary focus:outline-none"
-                          onClick={() => openLightbox(c.image, c.title)}
+                          onClick={() => setLightbox({ open: true, src: c.image, alt: c.title })}
                           aria-label={`Ver certificado: ${c.title}`}
                         >
                           <img src={c.image} alt={c.title} className="w-32 h-20 object-cover" />
@@ -188,7 +191,7 @@ export default function EducationPage({ location }) {
                 <button
                   type="button"
                   className="w-full h-44 bg-white flex items-center justify-center p-4 rounded-t-xl cursor-pointer hover:bg-base-200 transition-colors"
-                  onClick={() => openLightbox(c.image, c.title)}
+                  onClick={() => setLightbox({ open: true, src: c.image, alt: c.title })}
                   aria-label={`Ampliar imagen de ${c.title}`}
                 >
                   <img src={c.image} alt={c.title} className="max-h-full max-w-full object-contain" />
@@ -209,45 +212,33 @@ export default function EducationPage({ location }) {
         </div>
       </section>
 
-      {/* --- LIGHTBOX --- */}
-{/* --- LIGHTBOX (Versión Final 0 Warnings) --- */}
-<dialog 
-  ref={dialogRef} 
-  className="modal modal-bottom sm:modal-middle" 
-  // Eliminamos el onClick de aquí para matar el warning 209
-  onKeyDown={(e) => e.key === 'Escape' && closeLightbox()}
->
-  
-  <div className="modal-box max-w-5xl p-2 bg-base-100 relative">
-    <button 
-      type="button"
-      className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 z-10" 
-      onClick={closeLightbox}
-      aria-label="Cerrar"
-    >✕</button>
-    
-    <img 
-      src={lightbox.src} 
-      alt={lightbox.alt} 
-      className="w-full h-auto rounded-lg shadow-2xl" 
-    />
-    
-    <div className="p-4 text-center">
-      <h3 className="font-bold text-lg">{lightbox.alt}</h3>
-    </div>
-  </div>
+      {/* --- LIGHTBOX (Versión Final 0 Warnings) --- */}
+      <dialog 
+        ref={dialogRef} 
+        className="modal modal-bottom sm:modal-middle"
+      >
+        <div className="modal-box max-w-5xl p-2 bg-base-100 relative">
+          <button 
+            type="button"
+            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 z-10" 
+            onClick={() => setLightbox({ ...lightbox, open: false })}
+          >✕</button>
+          <img src={lightbox.src} alt={lightbox.alt} className="w-full h-auto rounded-lg shadow-2xl" />
+        </div>
 
- 
-  <form method="dialog" className="modal-backdrop bg-black/40">
-    <button 
-      type="button" 
-      className="cursor-default outline-none w-full h-full" 
-      onClick={closeLightbox}
-    >
-      close
-    </button>
-  </form>
-</dialog>
+        <form method="dialog" className="modal-backdrop">
+          <button 
+            type="submit" 
+            className="cursor-default outline-none"
+            onClick={(e) => {
+              e.preventDefault();
+              setLightbox({ ...lightbox, open: false });
+            }}
+          >
+            close
+          </button>
+        </form>
+      </dialog>
     </Layout>
   );
 }
