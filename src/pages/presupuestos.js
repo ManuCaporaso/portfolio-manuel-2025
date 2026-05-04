@@ -8,7 +8,8 @@ const solutions = [
     description: "Una página web profesional diseñada para que tus clientes te encuentren y confíen en vos.",
     benefits: [
       "Diseño moderno que se ve bien en cualquier celular",
-      "Aparece en las búsquedas de Google",
+      "Contenido optimizado para que Google te muestre primero",
+      "Secciones claras para mostrar tus servicios y precios",
       "Botón directo a tu WhatsApp para consultas rápidas",
       "Mapa de ubicación y formularios de contacto",
       "Fácil de mantener y actualizar"
@@ -26,7 +27,7 @@ const solutions = [
       "Base de datos propia con tu información segura",
       "Eliminación de planillas de papel o Excel complicados"
     ],
-    icon: "mdi:Briefcase-check",
+    icon: "mdi:briefcase-check-outline",
     result: "Ideal para ahorrar horas de trabajo administrativo y evitar errores."
   },
   {
