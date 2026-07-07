@@ -42,7 +42,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           {/* CV DESKTOP: Ahora se abre en ventana aparte */}
           <a
-            href="/resume.pdf"
+            href="/cv_manuel_caporaso.pdf"
             target="_blank" 
             rel="noopener noreferrer"
             className="hidden sm:inline-flex text-sm hover:text-primary transition-colors"
