@@ -73,7 +73,7 @@ export default function Navbar() {
               <li className="mt-1 border-t border-base-300 pt-1">
                 {/* CV MOBILE: Ahora se abre en ventana aparte */}
                 <a
-                  href="/resume.pdf"
+                  href="/cv_manuel_caporaso.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm hover:text-primary transition-colors"
