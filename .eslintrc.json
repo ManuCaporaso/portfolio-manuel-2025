@@ -1,0 +1,7 @@
+{
+  "extends": ["next/core-web-vitals", "plugin:jsx-a11y/recommended"],
+  "rules": {
+    "no-unused-vars": "error",
+    "@next/next/no-img-element": "off"
+  }
+}

@@ -1,0 +1,22 @@
+# Netlify - Static HTML Export (Next.js output: 'export')
+[build]
+  command = "npm run build"
+  publish = "out"
+
+# Sirve el 404 personalizado en rutas inexistentes
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Cache inmutable para los assets generados por Next.js
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# El PDF del CV se sirve siempre desde el principio (no caché agresiva)
+[[headers]]
+  for = "/cv_manuel_caporaso.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 
 export default function Card({
@@ -13,17 +15,14 @@ export default function Card({
   return (
     <div
       className={`
-        card bg-base-100 border border-base-300
+        card bg-base-100 border border-base-300 rounded-2xl shadow-sm
         transition-all duration-300 hover:shadow-xl hover:-translate-y-1
         ${className}
       `}
     >
-      {/* Cambiamos el figure o su contenido por un botón para accesibilidad. 
-         Esto elimina el warning: jsx-a11y/click-events-have-key-events 
-      */}
       <button
         type="button"
-        className="overflow-hidden rounded-t-xl cursor-zoom-in w-full p-0 border-none bg-transparent focus:outline-primary"
+        className="overflow-hidden rounded-t-2xl cursor-zoom-in w-full p-0 border-none bg-transparent focus:outline-primary"
         onClick={() => onImageClick && onImageClick(src, alt)}
         aria-label={`Ver imagen de ${title}`}
       >
@@ -41,18 +40,15 @@ export default function Card({
 
         {badges.length > 0 && (
           <div className="flex flex-wrap gap-2 my-1">
-            {/* Filtramos elementos nulos por si quedó alguna coma extra 
-               en los arrays de los proyectos 
-            */}
             {badges.filter(Boolean).map((badge, index) => (
-              <span key={index} className="badge badge-outline border-base-300 text-sm">
+              <span key={index} className="badge badge-outline border-base-300 text-sm text-base-content/70">
                 {badge}
               </span>
             ))}
           </div>
         )}
 
-        <p className="text-left text-base-content/80 leading-relaxed">{description}</p>
+        <p className="text-left text-base-content/70 leading-relaxed">{description}</p>
 
         {buttons.length > 0 && (
           <div className="mt-3 card-actions justify-end flex gap-2 flex-wrap">

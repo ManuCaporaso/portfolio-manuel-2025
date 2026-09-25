@@ -1,7 +1,0 @@
-@import "tailwindcss";
-
-/* DaisyUI v4 vía CSS plugin */
-@plugin "daisyui" {
-  /* Cupcake por defecto (claro), Night si el SO prefiere oscuro */
-  themes: cupcake --default, night --prefersdark;
-}

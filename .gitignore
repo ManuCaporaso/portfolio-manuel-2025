@@ -1,6 +1,7 @@
 node_modules/
 .cache/
-public
+.next/
+out/
 
 # Local Netlify folder
 .netlify

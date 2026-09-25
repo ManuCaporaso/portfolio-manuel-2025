@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Icon } from "@iconify/react";
 import { useTheme } from "../context/ThemeContext";
@@ -33,7 +35,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-base-300 bg-base-100/80 backdrop-blur supports-backdrop-filter:bg-base-100/60">
-      <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col items-center gap-4 text-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col items-center gap-4 text-center">
         <div className="flex items-center gap-6">
           {icons.map(({ icon, url, label }, index) => (
             <a
@@ -41,7 +43,7 @@ export default function Footer() {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors duration-300 hover:text-primary"
+              className="transition-colors duration-300 text-base-content/70 hover:text-primary"
               aria-label={label}
             >
               <Icon icon={icon} width="26" height="26" />
@@ -62,7 +64,7 @@ export default function Footer() {
             }}
           />
 
-          <p className="text-xs opacity-60">© {new Date().getFullYear()}</p>
+          <p className="text-xs text-base-content/60">© {new Date().getFullYear()}</p>
         </div>
       </div>
     </footer>

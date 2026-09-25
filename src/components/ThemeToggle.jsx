@@ -1,7 +1,9 @@
+"use client";
+
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
 import { Icon } from "@iconify/react";
-import { motion, AnimatePresence } from "framer-motion"; // Añadimos esto
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ThemeToggle({ className = "" }) {
   const { theme, toggleTheme } = useTheme();
@@ -16,7 +18,7 @@ export default function ThemeToggle({ className = "" }) {
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
-          key={theme} // Importante para que Framer detecte el cambio
+          key={theme}
           initial={{ y: -10, opacity: 0, rotate: -45 }}
           animate={{ y: 0, opacity: 1, rotate: 0 }}
           exit={{ y: 10, opacity: 0, rotate: 45 }}
