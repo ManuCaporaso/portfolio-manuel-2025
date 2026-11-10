@@ -79,21 +79,26 @@ const cards = [
       },
     ],
   },
-  {
-    title: "Gestión de Turnos en Tiempo Real",
-    alt: "Aplicación de ticketera con WebSockets",
-    src: "/images/proyectos/socket.png",
-    description:
-      "Sistema dinámico de turnos para comercios, utilizando comunicación bidireccional para actualizaciones instantáneas en pantalla.",
-    badges: ["Node.js", "Socket.io", "Express", "JavaScript"],
-    buttons: [
-      {
-        label: "Repo",
-        href: "https://github.com/ManuCaporaso/tp_integracion_de_aplicaciones_ITS_ticketera",
-        className: "btn btn-sm btn-outline btn-primary",
-      },
-    ],
-  },
+{
+  title: "Sistema de Gestión de Turnos en Tiempo Real",
+  alt: "Ticketera multicliente con Next.js y WebSockets",
+  src: "/images/proyectos/socket.png",
+  description:
+    "Evolución de un proyecto académico a una arquitectura fullstack moderna. Plataforma sincronizada en tiempo real entre emisor de tickets (tablet), operadores de atención (escritorios) y pantalla pública (TV). (Nota: Al estar alojado en la versión gratuita de Render, la demo puede tardar unos 30 segundos en despertar en el primer acceso).",
+  badges: ["Next.js (App Router)", "TypeScript", "Tailwind CSS", "Socket.io", "Express", "Sonner"],
+  buttons: [
+    {
+      label: "Demo",
+      href: "https://tp-integracion-de-aplicaciones-its.onrender.com/",
+      className: "btn btn-sm btn-primary",
+    },
+    {
+      label: "Repo",
+      href: "https://github.com/ManuCaporaso/tp_integracion_de_aplicaciones_ITS_ticketera",
+      className: "btn btn-sm btn-outline btn-primary",
+    },
+  ],
+}
 ];
 
 export default function ProjectsContent() {
