@@ -35,12 +35,12 @@ const cards = [
     ],
   },
   {
-    title: "Info-Tracker - Capturadora Full-Stack",
+    title: "Info-Tracker - Capturadora de novedades & OCR IA",
     alt: "Info-Tracker aplicación de gestión de novedades",
     src: "/images/proyectos/info-tracker.png",
     description:
-      "Aplicación multiplataforma para capturar novedades de clientes en tiempo real. Incluye reconocimiento de imágenes para automatización de datos.",
-    badges: ["React", "NodeJs", "Express", "MongoDB", "JWT", "Python", "Tesseract OCR"],
+      "Plataforma integral para gestión de lotes agrícolas y captura rápida de novedades en campo. Incluye módulo móvil offline-friendly para operarios, ingesta de planillas por pares (frente/dorso) y pipeline de OCR automatizado con IA para extracción de datos.",
+    badges: ["Next.js","NestJS","TypeScript","Prisma ORM","PostgreSQL","Tailwind CSS","IA / OCR","Docker"],
     buttons: [
       {
         label: "Solicitar acceso al Repo",
@@ -54,7 +54,7 @@ const cards = [
     alt: "Sistema de administración sindical interno",
     src: "/images/proyectos/sindicato.png",
     description:
-      "Sistema de gestión administrativa para el sindicato municipal: manejo de afiliados, reportes de cuotas y paneles internos de control.",
+      "Sistema de gestión administrativa para el sindicato municipal: manejo de afiliados, reportes de cuotas y paneles internos de control administrativo.",
     badges: ["Node.js", "Express", "PostgreSQL", "JWT", "REST API"],
     buttons: [
       {
@@ -69,12 +69,12 @@ const cards = [
     alt: "Tienda online de ropa full-stack",
     src: "/images/proyectos/tienda.png",
     description:
-      "Tienda online con flujo completo de compra: navegación por categorías, carrito de compras persistente y panel de administración.",
-    badges: ["Node.js", "Express", "MySQL", "React", "JWT"],
+      "E-commerce full-stack con arquitectura desacoplada. Incluye catálogo dinámico con variantes (talle/color), reservas de stock temporales, integración real con Mercado Pago (Checkout Pro), gestión de perfil de cliente con direcciones y tablero de administración para despacho y seguimiento de pedidos.",
+    badges: ["Next.js (App Router)","NestJS","Prisma ORM","MariaDB","TypeScript","Mercado Pago API","Tailwind CSS"],
     buttons: [
       {
         label: "Repo",
-        href: "https://github.com/ManuCaporaso/tp-final-icaro-caporaso-fullstack",
+        href: "https://github.com/ManuCaporaso/tienda-online-fullstack",
         className: "btn btn-sm btn-outline btn-primary",
       },
     ],
